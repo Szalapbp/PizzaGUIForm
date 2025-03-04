@@ -151,6 +151,8 @@ public class PizzaGUIFrame extends JFrame
 
     private void printReceipt()
     {
+        //this is where the crust type is found and stored as the string variable crustType, it is later
+        //used to post it in the receipt . instanceof JRadioButton is what discerns which crust is selected
         String crustType = "";
         Component[] crustComponents = ((JPanel) pizzaPnl.getComponent(0)).getComponents();
         for (Component component : crustComponents) {
@@ -160,6 +162,9 @@ public class PizzaGUIFrame extends JFrame
             }
         }
 
+        //This is where the selected size of the pizza is called and turned into a double that decides price as well as stores
+        //the size string to be used on the receipt with the sizeDetails.split function
+
         String sizeDetails = (String) sizeCost.getSelectedItem();
         double sizePrice = 0;
         String size = "";
@@ -168,6 +173,10 @@ public class PizzaGUIFrame extends JFrame
             size = sizeParts[0];
             sizePrice = Double.parseDouble(sizeParts[1]);
         }
+
+        //This is where the toppings are found and the int toppingCount is established to later find how much money
+        //in topings there is. the instanceof JCheckbox is used to find which toppings are currently selected.
+
 
         Component[] toppingComponents = ((JPanel) pizzaPnl.getComponent(2)).getComponents();
         StringBuilder toppingsList = new StringBuilder();
